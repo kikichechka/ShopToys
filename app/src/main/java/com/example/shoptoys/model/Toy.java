@@ -2,9 +2,15 @@ package com.example.shoptoys.model;
 
 public class Toy {
     private int id;
-    private String name;
+    private final String name;
     private int quantity;
     private int winningFrequency;
+
+    public Toy(String name, int quantity, int winningFrequency) {
+        this.name = name;
+        this.quantity = quantity;
+        this.winningFrequency = winningFrequency;
+    }
 
     public Toy(int id, String name, int quantity, int winningFrequency) {
         this.id = id;
@@ -15,6 +21,10 @@ public class Toy {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

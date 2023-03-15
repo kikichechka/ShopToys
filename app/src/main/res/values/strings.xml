@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Shop Toys</string>
+    <string name="String_for_button1">Сформировать игрушки для розыгрыша</string>
+    <string name="String_for_button2">провести розыгрыш</string>
+    <string name="edit_name_toy">Введите наименование игрушки:</string>
+    <string name="edit_quantity_toy">Введите количество товара:</string>
+    <string name="name_toy">name toy</string>
+    <string name="enter_the_text">Наименование игрушки</string>
+    <string name="enter_the_number">Количество игрушек</string>
+    <string name="probability_of_falling_out_of_the_toy">Вероятность выпадения игрушки(в процентах):</string>
+    <string name="add_toy_in_stock">Добавление позиции на склад</string>
+    <string name="save">сохранить</string>
+    <string name="cancel">отмена</string>
+    <string name="delete_position">Удалить позицию</string>
+    <string name="added">Добавить</string>
+    <string name="add">add</string>
+    <string name="choosing_prize_toy">Провести розыгрыш</string>
+    <string name="list_toy_in_stock">Список товаров на складе:</string>
+    <string name="generate_list_of_raffled_toys">Список разыгрываемых игрушек</string>
+    <string name="play_a_toy">Начать розыгрыш</string>
+    <string name="winner">ПОБЕДИТЕЛЬ</string>
+    <string name="winning">ВЫИГРЫШ:</string>
+    <string name="close">закрыть</string>
 </resources>

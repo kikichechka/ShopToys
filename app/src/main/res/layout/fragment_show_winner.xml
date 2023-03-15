@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/salyut"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/string_winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/winner"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        android:textSize="35sp"/>
+    <TextView
+        android:id="@+id/name_winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/string_winner"
+        android:text="user_0103"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/winning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/name_winner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/name_toy"
+            android:text="@string/winning"
+            android:textSize="25sp"
+            android:textAlignment="textEnd"/>
+
+        <TextView
+            android:id="@+id/name_toy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="игрушка"
+            app:layout_constraintStart_toEndOf="@id/winning"
+            app:layout_constraintBottom_toBottomOf="@id/winning"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/black"
+            android:textAlignment="textEnd"/>
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="10dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
