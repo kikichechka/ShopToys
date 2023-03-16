@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.shoptoys.R;
-import com.example.shoptoys.controller.ControllerView;
+import com.example.shoptoys.controller.ControllerViewListToysInStockFragment;
 import com.example.shoptoys.databinding.FragmenListToysInStockBinding;
 import com.example.shoptoys.model.Toy;
 import com.example.shoptoys.view.adapter.AdapterListStock;
@@ -20,7 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class ListToysInStockFragment extends Fragment {
-    ControllerView controllerView = new ControllerView();
+    ControllerViewListToysInStockFragment controllerView = new ControllerViewListToysInStockFragment();
     FragmenListToysInStockBinding binding;
 
     public static ListToysInStockFragment newInstance() {
@@ -41,7 +41,6 @@ public class ListToysInStockFragment extends Fragment {
         buttonAddToy.setOnClickListener(view1 -> requireActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.activity_main_container, AddNewToyInStockFragment.newInstance())
-                .addToBackStack("")
                 .commit());
         showListToysInStock();
     }

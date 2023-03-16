@@ -3,12 +3,14 @@ package com.example.shoptoys;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.shoptoys.databinding.ActivityMainBinding;
 import com.example.shoptoys.view.ChoosingPrizeFragment;
+import com.example.shoptoys.view.ListOfWinnersFragment;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -26,12 +28,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.activity_main_container, ChoosingPrizeFragment.newInstance())
-                .commit();
+        switch (item.getItemId()) {
+            case R.id.action_choosing_prize_toy:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.activity_main_container, ChoosingPrizeFragment.newInstance())
+                        .commit();
+                return true;
+            case R.id.action_list_of_winners:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.activity_main_container, ListOfWinnersFragment.newInstance())
+                        .commit();
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

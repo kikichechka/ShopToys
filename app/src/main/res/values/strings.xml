@@ -21,4 +21,6 @@
     <string name="winner">ПОБЕДИТЕЛЬ</string>
     <string name="winning">ВЫИГРЫШ:</string>
     <string name="close">закрыть</string>
+    <string name="list_of_winners">Список победителей</string>
+    <string name="clear_list">Удалить список</string>
 </resources>

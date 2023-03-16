@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileOperableImpl implements FileOperable {
-    private String fileName;
-    private ToyMapperImpl toyMapper = new ToyMapperImpl();
+    private final String fileName;
+    private final ToyMapperImpl toyMapper = new ToyMapperImpl();
 
     public FileOperableImpl(String fileName) {
         this.fileName = fileName;
@@ -38,7 +38,8 @@ public class FileOperableImpl implements FileOperable {
             }
             file.close();
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            addListToy(list, context);
+            getListToys(context);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -48,18 +49,30 @@ public class FileOperableImpl implements FileOperable {
     @Override
     public void addToy(Toy toy, Context context) {
         List <Toy> list = getListToys(context);
-//        toy.setId(list.size());
         list.add(toy);
         StringBuffer sb = new StringBuffer();
         try {
             FileOutputStream file = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             for (Toy t: list) {
-                sb.append(toyMapper.mapToString(t) + "\n");
+                sb.append(toyMapper.mapToString(t)).append("\n");
             }
             file.write(sb.toString().getBytes());
             file.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void addListToy(List<Toy> list, Context context) {
+        StringBuffer sb = new StringBuffer();
+        try {
+            FileOutputStream file = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+            for (Toy t: list) {
+                sb.append(toyMapper.mapToString(t)).append("\n");
+            }
+            file.write(sb.toString().getBytes());
+            file.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -78,7 +91,7 @@ public class FileOperableImpl implements FileOperable {
         try {
             FileOutputStream file = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             for (Toy t: newList) {
-                sb.append(toyMapper.mapToString(t) + "\n");
+                sb.append(toyMapper.mapToString(t)).append("\n");
             }
             file.write(sb.toString().getBytes());
             file.close();

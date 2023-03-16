@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,16 +12,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.shoptoys.R;
-import com.example.shoptoys.controller.ControllerView;
+import com.example.shoptoys.controller.ControllerViewListToysInStockFragment;
 import com.example.shoptoys.databinding.FragmentAddNewToyInStockBinding;
 import com.example.shoptoys.model.Toy;
 
 public class AddNewToyInStockFragment extends Fragment {
     FragmentAddNewToyInStockBinding binding;
-    ControllerView controllerView = new ControllerView();
-//    EditText editTextNameToy;
-//    EditText editTextQuantityToy;
-//    EditText editTextWinningFrequencyToy;
+    ControllerViewListToysInStockFragment controllerViewListToysInStockFragment = new ControllerViewListToysInStockFragment();
     Button buttonSaveToy;
     Button buttonCancel;
 
@@ -41,19 +37,12 @@ public class AddNewToyInStockFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        editTextNameToy = binding.nameToy;
-//        editTextQuantityToy = binding.quantityToy;
-//        editTextWinningFrequencyToy = binding.winningFrequencyToy;
         buttonSaveToy = binding.buttonSaveAddedToy;
         buttonCancel = binding.buttonCancel;
 
-        buttonSaveToy.setOnClickListener(view1 -> {
-            saveToy();
-        });
+        buttonSaveToy.setOnClickListener(view1 -> saveToy());
 
-        buttonCancel.setOnClickListener(view1 -> {
-            cancel();
-        });
+        buttonCancel.setOnClickListener(view1 -> cancel());
     }
 
     private void cancel() {
@@ -70,7 +59,7 @@ public class AddNewToyInStockFragment extends Fragment {
 
         if (checkingStrings(name, quantity, winningFrequency)) {
             Toy toy = new Toy(name, Integer.parseInt(quantity), Integer.parseInt(winningFrequency));
-            controllerView.addToyInStock(requireContext(), toy);
+            controllerViewListToysInStockFragment.addToyInStock(requireContext(), toy);
             requireActivity().getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.activity_main_container, ListToysInStockFragment.newInstance())

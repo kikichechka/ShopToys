@@ -32,8 +32,7 @@ public class AdapterListStock extends RecyclerView.Adapter<AdapterListStock.ToyV
     @Override
     public ToyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         FragmentItemToyForListToysInStockBinding binding = FragmentItemToyForListToysInStockBinding.inflate(LayoutInflater.from(parent.getContext()));
-        ToyViewHolder toyViewHolder = new ToyViewHolder(binding.getRoot());
-        return toyViewHolder;
+        return new ToyViewHolder(binding.getRoot());
     }
 
     @Override
